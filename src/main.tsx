@@ -1,5 +1,11 @@
-import { render } from 'preact'
-import { App } from './app.tsx'
-import './index.css'
-
-render(<App />, document.getElementById('app')!)
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+import { ChakraProvider } from '@chakra-ui/react'
+createRoot(document.getElementById('root')!).render(
+  <ChakraProvider>
+  <StrictMode>
+    <App />
+  </StrictMode>
+  </ChakraProvider>
+)
