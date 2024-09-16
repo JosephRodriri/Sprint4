@@ -134,7 +134,6 @@ export function Singing() {
             )}
           </Formik>
         </Contenedorinput>
-        <a href="#">Forgot Password ?</a>
       </Contenedoricon>
       <Contenedortwe>
         <LoginGF>
