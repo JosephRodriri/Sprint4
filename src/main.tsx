@@ -1,5 +1,13 @@
-import { render } from 'preact'
-import { App } from './app.tsx'
-import './index.css'
+import { render } from "preact";
+import { App } from "./app.tsx";
+import "./normalize.css";
+import { Provider } from "react-redux";
+import { store } from "./redux/store/store.js";
 
-render(<App />, document.getElementById('app')!)
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("app")!
+);

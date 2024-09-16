@@ -1,43 +1,40 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { SplashScreen } from "./Component/SplasScreen";
+import { Infoinicial } from "./Component/Infoinicial";
+import { Singing } from "./Component/singin";
+import { Createaccount } from "./Component/Createaccount";
+import { SignUn } from "./Component/singUn";
+import { Phone } from "./Component/phone";
 
 export function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p>
-        Check out{' '}
-        <a
-          href="https://preactjs.com/guide/v10/getting-started#create-a-vite-powered-preact-app"
-          target="_blank"
-        >
-          create-preact
-        </a>
-        , the official Preact + Vite starter
-      </p>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
+      <BrowserRouter>
+        <Routes>
+          {/* Ruta al home */}
+          <Route path="/" element={<SplashScreen />} />
+
+          {/* Rutas antes del Home */}
+          <Route path="/" element={<SplashScreen />} />
+          <Route path="/informacion" element={<Infoinicial />} />
+          <Route path="/singin" element={<Singing />} />
+          <Route path="/crearcuenta" element={<Createaccount />} />
+          <Route path="/signUn" element={<SignUn />} />
+          <Route path="/phone" element={<Phone />} />
+
+          {/* Ruta de error
+          <Route path="*" element={<Error />} /> */}
+
+          {/* Rutas extra
+          <Route path="/cuenta" element={<Editarperfil />} />
+          <Route path="/noty" element={<Notificaciones />} />
+          <Route path="/workoutsadded" element={<Workoutsadded />} />
+          <Route path="/createexersices" element={<Createexersices />} />
+          <Route path="/activity" element={<Activity />} />
+          <Route path="/faq" element={<Faq />} /> */}
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
